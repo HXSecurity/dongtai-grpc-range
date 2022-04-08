@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package DontaiGRPC;
+
+option go_package="/go-pb;DontaiGRPC";
+
+message Request{
+    string text = 1;
+}
+
+message Response{
+    int64 state = 1;
+    string  message = 2;
+}
+
+service GRPCService {
+    rpc Send(Request) returns (Response);
+}
