@@ -1,0 +1,3 @@
+[submodule "dongtai-grpc-pb"]
+	path = dongtai-grpc-pb
+	url = git@github.com:HXSecurity/dongtai-grpc-pb.git
