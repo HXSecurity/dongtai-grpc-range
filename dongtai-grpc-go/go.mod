@@ -3,7 +3,7 @@ module github.com/HXSecurity/dongtai-grpc-range/dongtai-grpc-go
 go 1.18
 
 require (
-	github.com/HXSecurity/DongTai-agent-go v0.3.3
+	github.com/HXSecurity/DongTai-agent-go v0.3.4
 	google.golang.org/grpc v1.45.0
 	google.golang.org/protobuf v1.27.1
 )
