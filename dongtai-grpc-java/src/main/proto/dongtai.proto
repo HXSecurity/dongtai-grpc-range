@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package DongtaiGRPC;
+option java_package="io.dongtai.range.grpc.gencode";
+
+option java_multiple_files = true;
+option java_outer_classname = "Dongtai";
+
+message Request{
+    string text = 1;
+}
+
+message Response{
+    int64 state = 1;
+    string  message = 2;
+}
+
+service GRPCService {
+    rpc Send(Request) returns (Response);
+}
