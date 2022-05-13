@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh_ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dontai-Grpc靶场</title>
+</head>
+<body>
+    <div>
+        <button id="cmd1">cmd1</button>
+        <button id="cmd2">cmd2</button>
+        <button id="cmd3">cmd3</button>
+        <button id="cmd4">cmd4</button>
+        <button id="cmd5">cmd5</button>
+    </div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        cmd1.onclick = () =>{
+            xhr.open("get","http://127.0.0.1:2234/grpcCmd1?cmd=whoami")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            xhr.send()
+        }
+
+        cmd2.onclick = () =>{
+            xhr.open("post","http://127.0.0.1:2234/grpcCmd2")
+            xhr.setRequestHeader("content-type","applaction/json")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            const obj = {cmd:"whoami"}
+            xhr.send(JSON.stringify(obj))
+        }
+
+        cmd3.onclick = () =>{
+            xhr.open("get","http://127.0.0.1:2234/grpcCmd3")
+            xhr.setRequestHeader("cmd","whoami")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            xhr.send()
+        }
+
+        cmd4.onclick = () =>{
+            xhr.open("get","http://127.0.0.1:2234/grpcCmd4?cmd=whoami")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            xhr.send()
+        }
+
+        cmd5.onclick = () =>{
+            xhr.open("get","http://127.0.0.1:2234/grpcCmd5?cmd=whoami")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            xhr.send()
+        }
+    </script>
+</body>
+</html>
