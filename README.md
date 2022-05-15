@@ -1,8 +1,11 @@
 ## 探针安装
 
 到洞态网站 add Agent 下 
+
 选择go 下载 config.yaml
+
 选择java 下载 agent.jar
+
 放到根目录下即可
 
 启动 docker-compose up -d
