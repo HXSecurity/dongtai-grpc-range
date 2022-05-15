@@ -38,3 +38,20 @@ services:
     networks:
       network:
         ipv4_address: 177.7.0.12
+  java-client:
+    build:
+      context: ./dongtai-grpc-java
+      dockerfile: ./Dockerfile
+    container_name: java-client
+    restart: always
+    environment:
+      - dongtai_name=java-client
+    volumes:
+      - "./agent.jar:/opt/agent.jar"
+    depends_on:
+      - go-server
+    ports:
+      - '6565:6565'
+    networks:
+      network:
+        ipv4_address: 177.7.0.13
