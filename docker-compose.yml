@@ -34,7 +34,7 @@ services:
     depends_on:
       - server
     ports:
-      - '8086:8080'
+      - '8082:8080'
     networks:
       network:
         ipv4_address: 177.7.0.12
@@ -51,7 +51,7 @@ services:
     depends_on:
       - go-server
     ports:
-      - '6565:6565'
+      - '8083:8080'
     networks:
       network:
         ipv4_address: 177.7.0.13
