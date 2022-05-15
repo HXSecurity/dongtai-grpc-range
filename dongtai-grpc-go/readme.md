@@ -9,6 +9,8 @@
 
 进入dongtai-grpc-go 项目
 
+## 项目配置
+
 ### 建议配置代理
 
 #### Bash (Linux or macOS)
@@ -39,3 +41,11 @@ $env:GOPRIVATE = "git.mycompany.com,github.com/my/private"
 
 客户端请求的服务端端口可以到 client下main.go
 75行  conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
+
+## 项目运行
+
+在 dongtai-grpc-go 目录下执行
+
+go run -gcflags "all=-N -l" ./server/main.go  运行服务端
+
+go run -gcflags "all=-N -l" ./client/main.go  运行客户端
