@@ -8,11 +8,13 @@
 
 放到根目录下即可
 
-
-
+```cmd
 启动 docker-compose up -d
 
 访问：go-clinet：http://127.0.0.1:8082/grpc
 
 访问：java-client：curl http://127.0.0.1:8083/grpc/send?text=1
        
+```
+
+
