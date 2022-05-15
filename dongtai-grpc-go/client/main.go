@@ -67,13 +67,13 @@ func main() {
 			writer.Write(f)
 		}
 	})
-	http.ListenAndServe("127.0.0.1:2234", nil)
+	http.ListenAndServe("0.0.0.0:8080", nil)
 }
 
 func done(cmd string) string {
 	//192.168.0.45:6565
 	//conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
-	conn, err := grpc.Dial("127.0.0.1:8888", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial("177.7.0.11:8888", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		fmt.Println(err)
 		return ""

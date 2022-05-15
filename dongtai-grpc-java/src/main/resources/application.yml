@@ -1,0 +1,6 @@
+grpc:
+    port: 6565
+
+app-config:
+    grpc-server-name: 177.7.0.11
+    grpc-server-port: 8888

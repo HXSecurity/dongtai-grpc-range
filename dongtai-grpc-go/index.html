@@ -19,7 +19,7 @@
     <script>
         const xhr = new XMLHttpRequest();
         cmd1.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:2234/grpcCmd1?cmd=whoami")
+            xhr.open("get","http://127.0.0.1:8082/grpcCmd1?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -27,7 +27,7 @@
         }
 
         cmd2.onclick = () =>{
-            xhr.open("post","http://127.0.0.1:2234/grpcCmd2")
+            xhr.open("post","http://127.0.0.1:8082/grpcCmd2")
             xhr.setRequestHeader("content-type","applaction/json")
             xhr.onload = function(){
                 alert(xhr.responseText)
@@ -37,7 +37,7 @@
         }
 
         cmd3.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:2234/grpcCmd3")
+            xhr.open("get","http://127.0.0.1:8082/grpcCmd3")
             xhr.setRequestHeader("cmd","whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
@@ -46,7 +46,7 @@
         }
 
         cmd4.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:2234/grpcCmd4?cmd=whoami")
+            xhr.open("get","http://127.0.0.1:8082/grpcCmd4?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -54,7 +54,7 @@
         }
 
         cmd5.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:2234/grpcCmd5?cmd=whoami")
+            xhr.open("get","http://127.0.0.1:8082/grpcCmd5?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
