@@ -1,8 +1,8 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 cloud.google.com/go v0.34.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/HXSecurity/DongTai-agent-go v0.3.8 h1:mO2jfgGdy+q2F0Jm7UETUkzjpmwN5bXjxHOrK6WFw7o=
-github.com/HXSecurity/DongTai-agent-go v0.3.8/go.mod h1:TBBOJBnQ5F7Q9tGp25XF+eYa3lAiaogQfubnuo2gsE8=
+github.com/HXSecurity/DongTai-agent-go v0.4.0 h1:31EOg2ORccKZ6W4yqn34T4UUW24KQLTZdjDuhyK5jOs=
+github.com/HXSecurity/DongTai-agent-go v0.4.0/go.mod h1:TBBOJBnQ5F7Q9tGp25XF+eYa3lAiaogQfubnuo2gsE8=
 github.com/StackExchange/wmi v1.2.1 h1:VIkavFPXSjcnS+O8yTq7NI32k0R5Aj+v39y29VYDOSA=
 github.com/StackExchange/wmi v1.2.1/go.mod h1:rcmrprowKIVzvc+NUiLncP2uuArMWLCbu9SBzvHz7e8=
 github.com/antihax/optional v1.0.0/go.mod h1:uupD/76wgC+ih3iEmQUL+0Ugr19nfwCT1kdvxnR2qWY=

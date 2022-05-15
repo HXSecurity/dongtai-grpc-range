@@ -68,8 +68,6 @@ func main() {
 		}
 	})
 	http.ListenAndServe("127.0.0.1:2234", nil)
-	for {
-	}
 }
 
 func done(cmd string) string {
