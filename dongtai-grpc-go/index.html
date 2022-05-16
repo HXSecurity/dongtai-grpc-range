@@ -5,15 +5,82 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dontai-Grpc靶场</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            border:1px solid #ccc;
+            border-collapse:collapse; /*边框合并*/
+            width:900px;
+        }
+        tr.odd{ /*表格的奇数列的样式*/
+            background-color:#f8f8f8;
+        }
+        tr.head{ /*表头的下边框*/
+            border-bottom-width: 2px;
+            background: #aaa;
+        }
+        u{
+            cursor: pointer;
+        }
+        tr{
+            border-bottom-style: solid; /*底部为实线*/
+            border-bottom-width: 1px;/*底部宽度为1px*/
+            border-bottom-color: lightgray; /*底部颜色*/
+            height:35px;/*高度为35px*/
+        }
+        td{
+            width:25%;
+            text-align:center; /*文字居中*/
+        }
+    </style>
+    <title>Dontai-GRPC靶场</title>
 </head>
 <body>
     <div>
-        <button id="cmd1">通过Query进入cmd</button>
-        <button id="cmd2">通过Body进入cmd</button>
-        <button id="cmd3">通过header进入cmd</button>
-        <button id="cmd4">通过切片进入cmd</button>
-        <button id="cmd5">通过map进入cmd</button>
+        <h1>Dontai-GRPC靶场</h1>
+        <table>
+            <tr class="head">
+                <th>漏洞类型</th>
+                <th>过程描述</th>
+                <th>触发方式</th>
+            </tr>
+            <tr>
+                <td>命令执行</td>
+                <td>污点通过Url Query参数进入后端流程</td>
+                <td><u id="cmd1">通过Query进入cmd</u></td>
+            </tr>
+            <tr class="odd">
+                <td>命令执行</td>
+                <td>污点通过POST Body参数进入后端流程</td>
+                <td><u id="cmd2">通过Body进入cmd</u></td>
+            </tr>
+            <tr>
+                <td>命令执行</td>
+                <td>污点通过Header 携带参数进入后端流程</td>
+                <td><u id="cmd3">通过header进入cmd</u></td>
+            </tr>
+            <tr class="odd">
+                <td>命令执行</td>
+                <td>污点进入后端流程后经过切片转换过程到达危险方法</td>
+                <td><u id="cmd4">通过切片进入cmd</u></td>
+            </tr>
+            <tr>
+                <td>命令执行</td>
+                <td>污点进入后端流程后经过Map转换过程到达危险方法</td>
+                <td><u id="cmd5">通过map进入cmd</u></td>
+            </tr>
+        </table>
+
+
+
+
+
     </div>
 
     <script>
