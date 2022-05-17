@@ -4,16 +4,17 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
+	"io/ioutil"
+	"net/http"
+	"os/exec"
+
 	_ "github.com/HXSecurity/DongTai-agent-go/run/base"
 	_ "github.com/HXSecurity/DongTai-agent-go/run/grpc"
 	_ "github.com/HXSecurity/DongTai-agent-go/run/http"
 	DongtaiGRPC "github.com/HXSecurity/dongtai-grpc-range/dongtai-grpc-go/pb/go-pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"io"
-	"io/ioutil"
-	"net/http"
-	"os/exec"
 )
 
 func main() {

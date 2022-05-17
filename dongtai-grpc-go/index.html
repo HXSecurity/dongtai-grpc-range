@@ -112,15 +112,33 @@
             </tr>
         </table>
 
-
+        <h2>Java --GRPC-- Go </h2>
+        <table>
+            <tr class="head">
+                <th>漏洞类型</th>
+                <th>过程描述</th>
+                <th>触发方式</th>
+            </tr>
+            <tr>
+                <td>命令执行</td>
+                <td>污点通过Url Query参数进入后端流程</td>
+                <td><u id="cmd11">通过Query进入cmd</u></td>
+            </tr>
+            <tr class="odd">
+                <td>命令执行</td>
+                <td>污点通过POST Body参数进入后端流程</td>
+                <td><u id="cmd12">通过Body进入cmd</u></td>
+            </tr>
+        </table>
 
 
     </div>
 
     <script>
         const xhr = new XMLHttpRequest();
+        const host = "127.0.0.1";
         cmd1.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd1?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd1?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -128,7 +146,7 @@
         }
 
         cmd2.onclick = () =>{
-            xhr.open("post","http://127.0.0.1:8082/grpcCmd2")
+            xhr.open("post","http://" + host + ":8082/grpcCmd2")
             xhr.setRequestHeader("content-type","applaction/json")
             xhr.onload = function(){
                 alert(xhr.responseText)
@@ -138,7 +156,7 @@
         }
 
         cmd3.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd3")
+            xhr.open("get","http://" + host + ":8082/grpcCmd3")
             xhr.setRequestHeader("cmd","whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
@@ -147,7 +165,7 @@
         }
 
         cmd4.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd4?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd4?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -155,7 +173,7 @@
         }
 
         cmd5.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd5?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd5?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -163,7 +181,7 @@
         }
 
         cmd6.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd6?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd6?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -171,8 +189,8 @@
         }
 
         cmd7.onclick = () =>{
-            xhr.open("post","http://127.0.0.1:8082/grpcCmd7")
-            xhr.setRequestHeader("content-type","applaction/json")
+            xhr.open("post","http://" + host + ":8082/grpcCmd7")
+            xhr.setRequestHeader("content-type","application/json")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -181,7 +199,7 @@
         }
 
         cmd8.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd8")
+            xhr.open("get","http://" + host + ":8082/grpcCmd8")
             xhr.setRequestHeader("cmd","whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
@@ -190,7 +208,7 @@
         }
 
         cmd9.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd9?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd9?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
@@ -198,11 +216,29 @@
         }
 
         cmd10.onclick = () =>{
-            xhr.open("get","http://127.0.0.1:8082/grpcCmd10?cmd=whoami")
+            xhr.open("get","http://" + host + ":8082/grpcCmd10?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
             }
             xhr.send()
+        }
+
+        cmd11.onclick = () =>{
+            xhr.open("get","http://" + host + ":8083/grpc/send?text=whoami")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            xhr.send()
+        }
+
+        cmd12.onclick = () =>{
+            xhr.open("post","http://" + host + ":8083/grpc/send")
+            xhr.setRequestHeader("content-type","application/json")
+            xhr.onload = function(){
+                alert(xhr.responseText)
+            }
+            const obj = {text:"whoami"}
+            xhr.send(JSON.stringify(obj))
         }
     </script>
 </body>

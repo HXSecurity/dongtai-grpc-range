@@ -24,4 +24,23 @@ public class SendController {
                 .build());
         return response.getMessage();
     }
+
+    private static class SendReq {
+        private String text;
+
+        public String getText() {
+            return text;
+        }
+    }
+
+    @PostMapping(path = "/send", consumes = "application/json")
+    public String send(@RequestBody SendReq req) {
+        if (req.getText().isEmpty()){
+            return "text can not be empty";
+        }
+        Response response = this.grpcServiceBlockingStub.send(Request.newBuilder()
+                .setText(req.getText())
+                .build());
+        return response.getMessage();
+    }
 }
