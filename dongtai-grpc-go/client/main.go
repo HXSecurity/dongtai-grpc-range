@@ -127,7 +127,7 @@ func done(cmd string) string {
 }
 
 func doneJava(cmd string) string {
-	conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.Dial("177.7.0.13:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		fmt.Println(err)
 		return ""

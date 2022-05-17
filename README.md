@@ -9,6 +9,8 @@
 
 
 ```cmd
+如果是公网访问靶场： 项目根目录执行：sed -i "s#127.0.0.1#你的公网地址#g" dongtai-grpc-go/index.html
+
 启动 docker-compose up -d
 
 访问：go-clinet：http://127.0.0.1:8082/grpc
