@@ -59,6 +59,48 @@ func main() {
 		writer.Write([]byte("hello" + cmdStr))
 	})
 
+	http.HandleFunc("/grpcCmd6", func(writer http.ResponseWriter, request *http.Request) {
+		values := request.URL.Query()
+		cmdStr := values.Get("cmd")
+		str := doneJava(cmdStr)
+		cmdiOne(str)
+		writer.Write([]byte("hello" + cmdStr))
+	})
+
+	http.HandleFunc("/grpcCmd7", func(writer http.ResponseWriter, request *http.Request) {
+		body, _ := io.ReadAll(request.Body)
+		fmt.Println(body)
+		req := make(map[string]string)
+		json.Unmarshal(body, &req)
+		cmdStr := req["cmd"]
+		str := doneJava(cmdStr)
+		cmdiTwo(str)
+		writer.Write([]byte("hello" + string(body)))
+	})
+
+	http.HandleFunc("/grpcCmd8", func(writer http.ResponseWriter, request *http.Request) {
+		cmdStr := request.Header.Get("Cmd")
+		str := doneJava(cmdStr)
+		cmdiThree(str)
+		writer.Write([]byte("hello" + cmdStr))
+	})
+
+	http.HandleFunc("/grpcCmd9", func(writer http.ResponseWriter, request *http.Request) {
+		values := request.URL.Query()
+		cmdStr := values.Get("cmd")
+		str := doneJava(cmdStr)
+		cmdiFour(str)
+		writer.Write([]byte("hello" + cmdStr))
+	})
+
+	http.HandleFunc("/grpcCmd10", func(writer http.ResponseWriter, request *http.Request) {
+		values := request.URL.Query()
+		cmdStr := values.Get("cmd")
+		str := doneJava(cmdStr)
+		cmdiFive(str)
+		writer.Write([]byte("hello" + cmdStr))
+	})
+
 	http.HandleFunc("/grpc", func(writer http.ResponseWriter, request *http.Request) {
 		f, err := ioutil.ReadFile("./index.html")
 		if err != nil {
@@ -71,9 +113,21 @@ func main() {
 }
 
 func done(cmd string) string {
-	//192.168.0.45:6565
-	//conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	conn, err := grpc.Dial("177.7.0.11:8888", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		fmt.Println(err)
+		return ""
+	}
+	client := DongtaiGRPC.NewGRPCServiceClient(conn)
+	req, _ := client.Send(context.Background(), &DongtaiGRPC.Request{
+		Text: cmd,
+	})
+	fmt.Println(req.Message)
+	return req.Message
+}
+
+func doneJava(cmd string) string {
+	conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		fmt.Println(err)
 		return ""

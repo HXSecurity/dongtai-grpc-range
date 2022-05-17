@@ -39,8 +39,11 @@ $env:GOPRIVATE = "git.mycompany.com,github.com/my/private"
 
 客户端（网页）端口可以进入client下main.go 修改第70行
 
-客户端请求的服务端端口可以到 client下main.go
-75行  conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
+客户端请求的服务端端口可以到 client下main.go  请求go服务
+116行  conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
+
+客户端请求的服务端端口可以到 client下main.go  请求java服务
+130行  conn, err := grpc.Dial("192.168.0.45:6565", grpc.WithTransportCredentials(insecure.NewCredentials()))
 
 ## 项目运行
 
