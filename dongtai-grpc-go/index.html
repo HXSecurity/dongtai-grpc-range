@@ -197,7 +197,7 @@
             xhr.send()
         }
 
-        cmd1.onclick = () =>{
+        cmd10.onclick = () =>{
             xhr.open("get","http://127.0.0.1:8082/grpcCmd10?cmd=whoami")
             xhr.onload = function(){
                 alert(xhr.responseText)
